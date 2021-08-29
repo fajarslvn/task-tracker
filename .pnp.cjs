@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prop-types", "npm:15.7.2"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:46b0a71e327e8ede5c16d538ece6fc52d2056a21e58838848a1e1a7918975437f9503097315b2037d2791fbcd0b0d1abcea285a1c2d775d6a19548f2333c6b1d#npm:17.0.2"],
+            ["react-icons", "virtual:46b0a71e327e8ede5c16d538ece6fc52d2056a21e58838848a1e1a7918975437f9503097315b2037d2791fbcd0b0d1abcea285a1c2d775d6a19548f2333c6b1d#npm:4.2.0"],
             ["vite", "npm:2.5.1"],
             ["vite-react-jsx", "virtual:46b0a71e327e8ede5c16d538ece6fc52d2056a21e58838848a1e1a7918975437f9503097315b2037d2791fbcd0b0d1abcea285a1c2d775d6a19548f2333c6b1d#npm:1.1.2"]
           ],
@@ -1610,6 +1611,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["react-icons", [
+        ["npm:4.2.0", {
+          "packageLocation": "./.yarn/cache/react-icons-npm-4.2.0-8be7673a1c-2b42d9b0ac.zip/node_modules/react-icons/",
+          "packageDependencies": [
+            ["react-icons", "npm:4.2.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:46b0a71e327e8ede5c16d538ece6fc52d2056a21e58838848a1e1a7918975437f9503097315b2037d2791fbcd0b0d1abcea285a1c2d775d6a19548f2333c6b1d#npm:4.2.0", {
+          "packageLocation": "./.yarn/__virtual__/react-icons-virtual-cb2742db06/0/cache/react-icons-npm-4.2.0-8be7673a1c-2b42d9b0ac.zip/node_modules/react-icons/",
+          "packageDependencies": [
+            ["react-icons", "virtual:46b0a71e327e8ede5c16d538ece6fc52d2056a21e58838848a1e1a7918975437f9503097315b2037d2791fbcd0b0d1abcea285a1c2d775d6a19548f2333c6b1d#npm:4.2.0"],
+            ["@types/react", null],
+            ["react", "npm:17.0.2"]
+          ],
+          "packagePeers": [
+            "@types/react",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["react-is", [
         ["npm:16.13.1", {
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",
@@ -1891,6 +1914,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prop-types", "npm:15.7.2"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:46b0a71e327e8ede5c16d538ece6fc52d2056a21e58838848a1e1a7918975437f9503097315b2037d2791fbcd0b0d1abcea285a1c2d775d6a19548f2333c6b1d#npm:17.0.2"],
+            ["react-icons", "virtual:46b0a71e327e8ede5c16d538ece6fc52d2056a21e58838848a1e1a7918975437f9503097315b2037d2791fbcd0b0d1abcea285a1c2d775d6a19548f2333c6b1d#npm:4.2.0"],
             ["vite", "npm:2.5.1"],
             ["vite-react-jsx", "virtual:46b0a71e327e8ede5c16d538ece6fc52d2056a21e58838848a1e1a7918975437f9503097315b2037d2791fbcd0b0d1abcea285a1c2d775d6a19548f2333c6b1d#npm:1.1.2"]
           ],

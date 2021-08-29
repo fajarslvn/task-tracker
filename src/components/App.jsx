@@ -12,22 +12,36 @@ const App = () => {
     },
     {
      id: 2,
-     text: 'Client Meeting',
+     text: 'Meeting at School',
      day: 'Feb 6th at 10:00am',
      reminder: true,
    },
    {
      id: 3,
-     text: 'Lunch',
+     text: 'Food Shopping',
      day: 'Feb 7th at 1:00pm',
      reminder: false,
    },
  ])
 
+  //  Delete Task
+  const deleteTask = (id) => {
+    // console.log('Delete', id);
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
+  // Toggle Reminder
+  const toggleReminder = (id) => {
+    setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
+  }
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks}/>
+      {tasks.length ? (<Tasks tasks={tasks} 
+      onDelete={deleteTask} 
+      onToggle={toggleReminder} />) : (
+        'No Task To show!')}
     </div>
   )
 }
