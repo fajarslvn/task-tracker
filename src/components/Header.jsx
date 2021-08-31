@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types'
 import Button from './Button'
-
-const Header = ({ title }) => {
-
+// Header: property param
+const Header = ({ title }) => { 
+  // Button: func
   const onClick = () => {
     console.log('Click');
   }
 
   return (
+    // header: add property
+    // Button: adding all custom properties
     <header className='header'>
       <h1>{title}</h1>
       <Button color='green' 

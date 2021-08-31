@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-
+// Button: calling params properties & event
 const Button = ({ color, text, onClick }) => {
   return (
-    <button onClick={onClick} 
+    // button: adding custom properties
+    <button onClick={onClick}
     style={{ backgroundColor: color }} 
     className="btn">
       {text}
