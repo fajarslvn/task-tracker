@@ -4,8 +4,10 @@ import Tasks from './Tasks'
 import AddTask from './AddTask'
 
 const App = () => {
-  // useState: array of database
-  // useState: "tasks" use for properties. setTasks use for set a "tasks" func
+  // set AddTask to not display
+  const [showAddTask, setShowAddTask] = useState(false)
+  // useState: array of data
+  // useState: "tasks" use for state. setTasks use for update "tasks" 
   const [tasks, setTasks] = useState([
     // all this is "tasks" properties
     {
@@ -28,17 +30,17 @@ const App = () => {
    },
  ])
 
-  // Add Task
+  // Add Task (to array of data)
   const putTask = (task) => {
     // add random id for new task
     const id = Math.floor(Math.random() * 10000) + 1
-    // add new id on new task and add new task
+    // add new id on new task and add new all new task
     const newTask = {id, ...task}
-    // add new task on tasks
+    // add all from the "...task" with the new task
     setTasks([...tasks, newTask])
   }
 
-  //  Delete Task
+  //  Delete Task 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id))
   }
@@ -49,12 +51,15 @@ const App = () => {
   }
 
   return (
+    // Header: if showAddTask === false return empty
+    // AddTask: if showAddTask (default is false) === true : AddTask (show)
+    // Tasks: show Tasks if not empty, if empty show notification
     <div className="container">
-      <Header />
-      <AddTask onAdd={putTask}/>
+      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
+      {showAddTask && <AddTask onAdd={putTask} />}
       {tasks.length ? (<Tasks tasks={tasks} 
-      onDelete={deleteTask} 
-      onToggle={toggleReminder} />) : (
+        onDelete={deleteTask} 
+        onToggle={toggleReminder} />) : (
         'No Task To show!')}
     </div>
   )
