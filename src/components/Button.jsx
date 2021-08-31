@@ -10,15 +10,15 @@ const Button = ({ color, text, onClick }) => {
     </button>
   );
 };
- 
+
 Button.defaultProps = {
   text: 'Change me',
   color: 'steelblue ',
 };
-
+// BUtton: strict property type
 Button.propTypes = {
-  text: PropTypes.string,
-  color: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };
 

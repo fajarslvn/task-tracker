@@ -4,7 +4,10 @@ import Tasks from './Tasks'
 import AddTask from './AddTask'
 
 const App = () => {
+  // useState: array of database
+  // useState: tasks use for properties. setTasks use for set tasks func
   const [tasks, setTasks] = useState([
+    // all is tasks properties
     {
       id: 1,
       text: 'Doctors Appointment',
@@ -26,15 +29,16 @@ const App = () => {
  ])
 
   // Add Task
-  const putTask = (task ) => {
+  const putTask = (task) => {
+    // add random id for new task
     const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = { id, ...task }
+    // add new id on new task and add new task
+    const newTask = {id, ...task}
     setTasks([...tasks, newTask])
   }
 
   //  Delete Task
   const deleteTask = (id) => {
-    // console.log('Delete', id);
     setTasks(tasks.filter((task) => task.id !== id))
   }
 

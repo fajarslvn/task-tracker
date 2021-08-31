@@ -21,12 +21,12 @@ const Header = ({ title }) => {
 Header.defaultProps = {
   title: "Task Tracker",
 }
-
+// strict property type
 Header.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-/** CSS in JS 
+/** custom CSS in JS 
 const headingStyle = {
   color: 'blue',
   backgroundColor: 'red',
