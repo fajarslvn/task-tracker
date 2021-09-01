@@ -20,26 +20,34 @@ const App = () => {
 
   // Feth Tasks
   const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/tasks')
+    const res = await fetch('http://localhost:5000/tasks/')
     const data = await res.json()
     return data
   }
 
-  // Fetch Task
-  const fetchTask = async () => {
+  // Fetch Task 
+  const fetchTask = async (id) => {
     const res = await fetch(`http://localhost:5000/tasks/${id}`)
     const data = await res.json()
     return data
   }
 
   // Add Task (to array of data)
-  const putTask = (task) => {
-    // add random id for new task
-    const id = Math.floor(Math.random() * 10000) + 1
-    // add new id on new task and add new all new task
-    const newTask = {id, ...task}
-    // add all from the "...task" with the new task
-    setTasks([...tasks, newTask])
+  const createTask = async (task) => {
+    const res = await fetch('http://localhost:5000/tasks/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(task)
+    })
+
+    const data = await res.json()
+    setTasks([...tasks, data])
+
+   /** const id = Math.floor(Math.random() * 10000) + 1 // add random id for new task
+    const newTask = {id, ...task} // add new id on new task and add new all new task
+    setTasks([...tasks, newTask]) // add all from the "...task" with the new task */
   }
 
   //  Delete Task 
@@ -47,14 +55,27 @@ const App = () => {
     const res = await fetch(`http://localhost:5000/tasks/${id}`, {
       method: 'DELETE',
     })
-    // res.status === 200 ?
+    res.status === 200 ?
     setTasks(tasks.filter((task) => task.id !== id))
-    // : alert('Error deleting this task')
+    : alert('Error deleting this task')
   }
 
   // Toggle Reminder
-  const toggleReminder = (id) => {
-    setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
+  const toggleReminder = async (id) => {
+    const taskToToggle = await fetchTask(id)
+    const updateTask = {...taskToToggle, reminder: !taskToToggle.reminder}
+
+    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updateTask)
+    })
+
+    const data = await res.json()
+
+    setTasks(tasks.map((task) => task.id === id ? {...task, reminder: data.reminder} : task))
   }
 
   return (
@@ -63,7 +84,7 @@ const App = () => {
     // Tasks: show Tasks if not empty, if empty show notification
     <div className="container">
       <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
-      {showAddTask && <AddTask onAdd={putTask} />}
+      {showAddTask && <AddTask onAdd={createTask} />}
       {tasks.length ? (<Tasks tasks={tasks} 
         onDelete={deleteTask} 
         onToggle={toggleReminder} />) : (

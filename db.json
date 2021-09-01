@@ -11,6 +11,12 @@
       "text": "Meeting at Office",
       "day": "Feb 6th at 10:00am",
       "reminder": true
+    },
+    {
+      "text": "Dinner with family",
+      "day": "Feb 7th at 19:00pm",
+      "reminder": true,
+      "id": 3
     }
   ]
 }
