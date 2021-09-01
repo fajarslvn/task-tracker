@@ -1,5 +1,5 @@
 {
-  "task": [
+  "tasks": [
     {
       "id": 1,
       "text": "Doctors Appointment",
@@ -7,16 +7,10 @@
       "reminder": true
     },
     {
-     "id": 2,
-     "text": "Meeting at Office",
-     "day": "Feb 6th at 10:00am",
-     "reminder": true
-   },
-   {
-     "id": 3,
-     "text": "Food Shopping",
-     "day": "Feb 7th at 1:00pm",
-     "reminder": false
-   }
+      "id": 2,
+      "text": "Meeting at Office",
+      "day": "Feb 6th at 10:00am",
+      "reminder": true
+    }
   ]
 }

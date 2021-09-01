@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from "./Header"
 import Tasks from './Tasks'
 import AddTask from './AddTask'
@@ -9,6 +9,28 @@ const App = () => {
   // useState: array of data
   // useState: "tasks" use for state. setTasks use for update "tasks" 
   const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    const getTasks= async () => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
+    }
+    getTasks()
+  }, [])
+
+  // Feth Tasks
+  const fetchTasks = async () => {
+    const res = await fetch('http://localhost:5000/tasks')
+    const data = await res.json()
+    return data
+  }
+
+  // Fetch Task
+  const fetchTask = async () => {
+    const res = await fetch(`http://localhost:5000/tasks/${id}`)
+    const data = await res.json()
+    return data
+  }
 
   // Add Task (to array of data)
   const putTask = (task) => {
@@ -21,8 +43,13 @@ const App = () => {
   }
 
   //  Delete Task 
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
+    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: 'DELETE',
+    })
+    // res.status === 200 ?
     setTasks(tasks.filter((task) => task.id !== id))
+    // : alert('Error deleting this task')
   }
 
   // Toggle Reminder
