@@ -8,27 +8,7 @@ const App = () => {
   const [showAddTask, setShowAddTask] = useState(false)
   // useState: array of data
   // useState: "tasks" use for state. setTasks use for update "tasks" 
-  const [tasks, setTasks] = useState([
-    // all this is "tasks" properties
-    {
-      id: 1,
-      text: 'Doctors Appointment',
-      day: 'Feb 5th at 2:30pm',
-      reminder: true,
-    },
-    {
-     id: 2,
-     text: 'Meeting at Office',
-     day: 'Feb 6th at 10:00am',
-     reminder: true,
-   },
-   {
-     id: 3,
-     text: 'Food Shopping',
-     day: 'Feb 7th at 1:00pm',
-     reminder: false,
-   },
- ])
+  const [tasks, setTasks] = useState([])
 
   // Add Task (to array of data)
   const putTask = (task) => {
