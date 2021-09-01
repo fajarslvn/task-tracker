@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import Header from "./Header"
-import Tasks from './Tasks'
-import AddTask from './AddTask'
+import Header from "./components/Header"
+import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
+import Footer from './components/Footer'
 
 const App = () => {
   // set AddTask to not display
@@ -61,7 +62,7 @@ const App = () => {
   }
 
   // Toggle Reminder
-  const toggleReminder = async (id) => {
+  const toggleReminder = async (id) => { 
     const taskToToggle = await fetchTask(id)
     const updateTask = {...taskToToggle, reminder: !taskToToggle.reminder}
 
@@ -89,6 +90,7 @@ const App = () => {
         onDelete={deleteTask} 
         onToggle={toggleReminder} />) : (
         'No Task To show!')}
+      <Footer />
     </div>
   )
 }
