@@ -15,7 +15,7 @@
     {
       "text": "Dinner with family",
       "day": "Feb 7th at 19:00pm",
-      "reminder": true,
+      "reminder": false,
       "id": 3
     }
   ]
