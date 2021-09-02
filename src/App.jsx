@@ -89,7 +89,8 @@ const App = () => {
     <div className="container">
       <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
       
-      <Route path='/' exact render={(props) => (
+      <Route path='/' 
+        exact render={(props) => (
          <>
           {showAddTask && <AddTask onAdd={createTask} />}
           {tasks.length ? (<Tasks tasks={tasks} 
@@ -97,7 +98,8 @@ const App = () => {
             onToggle={toggleReminder} />) : (
             'No Task To show!')}
          </> 
-      )} />
+        )}           
+      />
       <Route path='/about' component={About} />
       <Footer />
     </div>
