@@ -97,10 +97,13 @@ const App = () => {
         exact render={(props) => (
          <>
           {showAddTask && <AddTask onAdd={createTask} />}
-          {tasks.length ? (<Tasks tasks={tasks} 
+          {tasks.length ? (<Tasks 
+            tasks={tasks} 
             onDelete={deleteTask} 
-            onToggle={toggleReminder} />) : (
-            'No Task To show!')}
+            onToggle={toggleReminder} />
+          ) : (
+            'No Task To show!'
+          )}
          </> 
         )}
       />
