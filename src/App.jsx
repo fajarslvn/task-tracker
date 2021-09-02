@@ -83,11 +83,15 @@ const App = () => {
 
   return (
     // Header: if showAddTask === false return empty
+    // Header: showAdd follow the default state of shoAddTask
     // AddTask: if showAddTask (default is false) === true : AddTask (show)
     // Tasks: show Tasks if not empty, if empty show notification
     <Router>
     <div className="container">
-      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
+      <Header 
+        onAdd={() => setShowAddTask(!showAddTask)} 
+        showAdd={showAddTask}
+      />
       
       <Route path='/' 
         exact render={(props) => (
