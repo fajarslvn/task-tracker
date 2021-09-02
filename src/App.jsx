@@ -102,7 +102,7 @@ const App = () => {
             onToggle={toggleReminder} />) : (
             'No Task To show!')}
          </> 
-        )}           
+        )}
       />
       <Route path='/about' component={About} />
       <Footer />
